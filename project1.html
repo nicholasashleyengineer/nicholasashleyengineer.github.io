@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBAR WINDS Smart Irrigation Control System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 1em;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #003366;
+    }
+    img {
+      width: 100%;
+      max-width: 100%;
+      margin: 1em 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 2em;
+      padding: 0.5em 1.2em;
+      background-color: #003366;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .back-button:hover {
+      background-color: #00529B;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SBAR WINDS Smart Irrigation Control System</h1>
+  </header>
+
+  <main>
+    <h2>Project Summary</h2>
+    <p>
+      Designed and built a working prototype for the SBAR WINDS Smart Irrigation Control System — a field-deployable solution for automating irrigation in guayule research plots. This effort was part of the $15M+ USDA-funded <em>Sustainable Bioeconomy for Arid Regions (SBAR)</em> project.
+    </p>
+    <p>
+      The system integrates solenoid valve control, pressure and flow measurement, and wireless data communication — coordinated by a Raspberry Pi. I defined system-level requirements with USDA and university stakeholders, sourced and integrated hardware, wrote control and data logging scripts, and produced full electrical documentation.
+    </p>
+
+    <h2>System Architecture</h2>
+    <img src="Screenshot%202024-06-11%20094952.png" alt="Current System Configuration Diagram" />
+
+    <ul>
+      <li><strong>Primary controller:</strong> Raspberry Pi with display & GSM modem</li>
+      <li><strong>Peripheral devices:</strong> Flow meters, pressure sensors, solenoids</li>
+      <li><strong>Communication:</strong> RS-232 serial + I²C protocols</li>
+      <li><strong>Custom PCBs:</strong> Relay control boards, analog signal converter</li>
+      <li><strong>Software:</strong> Python and shell scripts for automation and logging</li>
+    </ul>
+
+    <h2>Wiring Diagram</h2>
+    <img src="WINDS_SHIP_Electrical_Wiring_Diagram.png" alt="Electrical Wiring Diagram" />
+
+    <p>
+      This full-scale wiring diagram was created to document system interconnects and support reproducibility. All field wiring was color-coded and labeled to match the schematic, supporting installation and maintenance.
+    </p>
+
+    <a href="index.html" class="back-button">← Back to Portfolio</a>
+  </main>
+</body>
+</html>
