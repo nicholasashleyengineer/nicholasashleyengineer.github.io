@@ -1,87 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SBAR WINDS Smart Irrigation Control System</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      margin: 0;
-      color: #333;
-    }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 1.5em;
-      text-align: center;
-    }
-    main {
+      line-height: 1.6;
+      margin: 20px;
       max-width: 900px;
-      margin: 2em auto;
-      padding: 1em;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #003366;
     }
     img {
-      width: 100%;
       max-width: 100%;
-      margin: 1em 0;
+      height: auto;
+      margin: 10px 0;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 4px;
+      background: #f9f9f9;
     }
-    .back-button {
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    .back-link {
+      margin-bottom: 20px;
       display: inline-block;
-      margin-top: 2em;
-      padding: 0.5em 1.2em;
-      background-color: #003366;
-      color: white;
       text-decoration: none;
-      border-radius: 6px;
+      color: #2980b9;
+      font-weight: bold;
     }
-    .back-button:hover {
-      background-color: #00529B;
+    .back-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>SBAR WINDS Smart Irrigation Control System</h1>
-  </header>
+  <a class="back-link" href="index.html">← Back to Portfolio Home</a>
 
-  <main>
-    <h2>Project Summary</h2>
-    <p>
-      Designed and built a working prototype for the SBAR WINDS Smart Irrigation Control System — a field-deployable solution for automating irrigation in guayule research plots. This effort was part of the $15M+ USDA-funded <em>Sustainable Bioeconomy for Arid Regions (SBAR)</em> project.
-    </p>
-    <p>
-      The system integrates solenoid valve control, pressure and flow measurement, and wireless data communication — coordinated by a Raspberry Pi. I defined system-level requirements with USDA and university stakeholders, sourced and integrated hardware, wrote control and data logging scripts, and produced full electrical documentation.
-    </p>
+  <h1>SBAR WINDS Smart Irrigation Control System</h1>
 
-    <h2>System Architecture</h2>
-    <img src="Screenshot%202024-06-11%20094952.png" alt="Current System Configuration Diagram" />
+  <p><strong>Summary:</strong></p>
+  <p>Used Systems Engineering fundamentals to develop a Raspberry Pi-based control system to automate the irrigation of guayule fields for the $15M+ Sustainable Bioeconomy in Arid Regions (SBAR) research project. Coordinated with university and USDA researchers to define design criteria and created software scripts, an electrical wiring diagram, and a functioning prototype.</p>
 
-    <ul>
-      <li><strong>Primary controller:</strong> Raspberry Pi with display & GSM modem</li>
-      <li><strong>Peripheral devices:</strong> Flow meters, pressure sensors, solenoids</li>
-      <li><strong>Communication:</strong> RS-232 serial + I²C protocols</li>
-      <li><strong>Custom PCBs:</strong> Relay control boards, analog signal converter</li>
-      <li><strong>Software:</strong> Python and shell scripts for automation and logging</li>
-    </ul>
+  <img src="WINDS_SHIP_Electrical_Wiring_Diagram.png" alt="Wiring Diagram">
+  <img src="Screenshot 2024-06-11 094952.png" alt="System Configuration Diagram">
 
-    <h2>Wiring Diagram</h2>
-    <img src="WINDS_SHIP_Electrical_Wiring_Diagram.png" alt="Electrical Wiring Diagram" />
+  <h2>System Design Description</h2>
+  <p>This system distributes 120VAC power into three regulated outputs—24VAC, 12VDC, and 5VDC—to support a range of automation and sensing components, with surge and circuit protection at every stage. Incoming 120VAC is routed through a Class III surge protector, with the hot wire protected by a 2A breaker before branching to three power supplies: a 24VAC transformer, a 12VDC supply, and a 5VDC supply. Each supply has its own surge breaker (0.5A, 10A, and 8A respectively) and feeds into dedicated distribution blocks.</p>
 
-    <p>
-      This full-scale wiring diagram was created to document system interconnects and support reproducibility. All field wiring was color-coded and labeled to match the schematic, supporting installation and maintenance.
-    </p>
+  <p>The 5VDC system powers 13 devices, including a Raspberry Pi, GSM shield, Bluetooth transmitter, 5 flow meters, and 5 pressure transducers. The 12VDC system powers the UC32 pulse counter, a 0–10V ADC board, two 8-channel relay boards, and an 8" display monitor via a barrel jack. The 24VAC system operates only the irrigation solenoid valves and is isolated from ground for safety.</p>
 
-    <a href="index.html" class="back-button">← Back to Portfolio</a>
-  </main>
+  <p>Relay boards manage power routing and control. Relay Control Board #1 selectively routes valve neutral lines either to ground (for SHIP bypass) or to the internal system. Relay Control Board #2 toggles 24VAC hot lines to the valves, enabling irrigation control when relays on Board #1 permit it.</p>
+
+  <p>Flow meters connect through terminal blocks and feed digital pulses to the UC32, while pressure transducers send analog voltage signals to the ADC. Pull-down resistors tied to the DC Negative Bus ensure clean logic levels and accurate readings.</p>
+
+  <p>All DC negative and ground wires route to a shared Ground Bus, bonded to the enclosure for safety. If a hot wire contacts the enclosure, a low-resistance short trips a breaker instantly, protecting users and equipment.</p>
+
+  <h2>Project Photos</h2>
+  <img src="c971b6e2-23ea-4481-855d-2b98d4ae9bd7.png" alt="Irrigation Valve Array">
+  <p><strong>Field Valves:</strong> This is the actual set of Netafim irrigation valves that the system was designed to control.</p>
+
+  <img src="1e1aebf0-57fb-4819-a5e5-0fa066df140f.png" alt="Pulse Counter Testing">
+  <p><strong>Pulse Counter:</strong> A breadboarded Arduino pulse counter setup used to measure flow rates from low-cost Netafim analog flow meters. Successfully reduced expected cost from over $400 to ~$35 for a 5-channel setup.</p>
+
+  <img src="97656398-d0c0-4100-8356-10cce12171e4.png" alt="System Testbed">
+  <p><strong>Testbed:</strong> Photo of the Raspberry Pi-based testbed system with connected relay boards, shields, and touchscreen. Python scripts were used to control valve states and verify component functionality.</p>
+
 </body>
 </html>
+
