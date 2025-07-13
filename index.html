@@ -3,110 +3,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nicholas Ashley | Engineering Portfolio</title>
+  <title>Nicholas Ashley – Engineering Portfolio</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s;
     }
+
+    .light-mode {
+      background-color: #f8f9fa;
+      color: #222;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #ddd;
+    }
+
     header {
-      background-color: #003366;
-      color: white;
       padding: 1.5em;
       text-align: center;
-    }
-    .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5em;
-      padding: 2em;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .project {
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      overflow: hidden;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .project:hover {
-      transform: scale(1.02);
-    }
-    .project img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .project-title {
-      padding: 1em;
-      font-weight: bold;
-    }
-    .skills {
-      text-align: center;
-      margin-top: 2em;
-    }
-    .skills span {
-      display: inline-block;
-      margin: 0.5em;
-      padding: 0.5em 1em;
-      background: #e6f0fa;
-      border-radius: 20px;
-      position: relative;
-    }
-    .skills span:hover::after {
-      content: attr(data-info);
-      position: absolute;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
       background-color: #003366;
       color: white;
-      padding: 0.5em;
-      border-radius: 6px;
-      white-space: nowrap;
     }
-    footer {
-      text-align: center;
+
+    .toggle-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #fff;
+      border-radius: 5px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      font-size: 0.9em;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .dark-mode .toggle-container {
+      background-color: #333;
+      color: #eee;
+      border-color: #555;
+    }
+
+    main {
+      padding: 2em;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .project-tile {
+      margin: 1em 0;
       padding: 1em;
-      background-color: #f0f0f0;
-      margin-top: 3em;
+      background-color: #fff;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      transition: background-color 0.3s;
+    }
+
+    .project-tile:hover {
+      background-color: #e6f0ff;
+    }
+
+    .dark-mode .project-tile {
+      background-color: #1e1e1e;
+      border-color: #444;
+    }
+
+    .dark-mode .project-tile:hover {
+      background-color: #2a2a2a;
+    }
+
+    a {
+      text-decoration: none;
+      color: #003366;
+    }
+
+    .dark-mode a {
+      color: #82aaff;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .skill {
+      display: inline-block;
+      margin: 0.2em 0.5em;
+      padding: 0.2em 0.6em;
+      background: #003366;
+      color: white;
+      border-radius: 5px;
+      font-size: 0.85em;
+      position: relative;
+    }
+
+    .skill:hover::after {
+      content: attr(data-description);
+      position: absolute;
+      top: 120%;
+      left: 0;
+      background: #fff;
+      color: #000;
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      white-space: nowrap;
+      border-radius: 5px;
+      font-size: 0.75em;
+      z-index: 10;
+    }
+
+    .dark-mode .skill {
+      background: #00529B;
+    }
+
+    .dark-mode .skill:hover::after {
+      background: #333;
+      color: #fff;
+      border-color: #555;
     }
   </style>
 </head>
-<body>
+<body class="light-mode">
+  <div class="toggle-container" onclick="toggleMode()">🌙 Toggle Dark Mode</div>
+
   <header>
     <h1>Nicholas Ashley</h1>
-    <p>Aerospace Test & Fluids Engineer</p>
+    <p>Engineering Portfolio</p>
   </header>
 
   <main>
-    <div class="portfolio">
-      <div class="project" onclick="location.href='project1.html';">
-        <img src="WINDS_SHIP_Electrical_Wiring_Diagram_thumb.png" alt="Wiring Diagram Thumbnail">
-        <div class="project-title">WINDS Electrical Wiring Diagram</div>
-      </div>
-      <div class="project" onclick="location.href='project2.html';">
-        <img src="Lab_PID_program_thumb.png" alt="PID Program Thumbnail">
-        <div class="project-title">Lab PID Program Printout</div>
-      </div>
+    <div class="project-tile">
+      <h2><a href="project1.html">SBAR WINDS Smart Irrigation Control System</a></h2>
+      <p>Raspberry Pi-based automated irrigation system with field-tested sensors, custom power routing, and cellular connectivity. Developed for the USDA-backed SBAR project.</p>
     </div>
 
-    <div class="skills">
-      <h2>Skills</h2>
-      <span data-info="Aerospace system validation, test execution, and data analysis">Test Engineering</span>
-      <span data-info="Fluid control, actuation systems, and component-level testing">Valve Actuation</span>
-      <span data-info="Thermal, vibration, and structural verification campaigns">Environmental Testing</span>
-      <span data-info="Team coordination, work instructions, and interdisciplinary planning">Project Coordination</span>
+    <h3>Skills</h3>
+    <div>
+      <span class="skill" data-description="Circuit design, relay logic, and electrical safety">Electrical Systems</span>
+      <span class="skill" data-description="Python and Arduino scripting for device communication">Embedded Programming</span>
+      <span class="skill" data-description="Design reviews, requirements gathering, prototyping">Systems Engineering</span>
+      <span class="skill" data-description="Remote sensing, flow/pressure instrumentation">Sensor Integration</span>
     </div>
   </main>
 
-  <footer>
-    &copy; 2025 Nicholas Ashley
-  </footer>
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const isDark = body.classList.contains("dark-mode");
+      body.classList.toggle("dark-mode", !isDark);
+      body.classList.toggle("light-mode", isDark);
+      localStorage.setItem("theme", isDark ? "light" : "dark");
+    }
+
+    window.onload = () => {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") {
+        document.body.classList.remove("light-mode");
+        document.body.classList.add("dark-mode");
+      }
+    };
+  </script>
 </body>
 </html>
