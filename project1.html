@@ -1,90 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SBAR WINDS Smart Irrigation Control System</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 2rem;
-      background-color: #f9f9f9;
-    }
-    h1 {
-      text-align: center;
-    }
-    details {
-      margin-bottom: 1.5rem;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-    summary {
-      font-weight: bold;
-      font-size: 1.2rem;
-      cursor: pointer;
+      line-height: 1.6;
+      margin: 20px;
+      max-width: 900px;
     }
     img {
       max-width: 100%;
       height: auto;
-      margin: 1rem 0;
+      margin: 10px 0;
       border: 1px solid #ccc;
+      padding: 4px;
+      background: #f9f9f9;
     }
-    p {
-      line-height: 1.6;
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    .back-link {
+      margin-bottom: 20px;
+      display: inline-block;
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: bold;
+    }
+    .back-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Engineering Portfolio</h1>
+  <a class="back-link" href="index.html">← Back to Portfolio Home</a>
 
-  <details open>
-    <summary><strong>SBAR WINDS Smart Irrigation Control System</strong></summary>
+  <h1>SBAR WINDS Smart Irrigation Control System</h1>
 
-    <p>
-      Used Systems Engineering fundamentals to develop a Raspberry Pi-based control system to automate the irrigation of guayule fields for the $15M+ Sustainable Bioeconomy in Arid Regions (SBAR) research project. Coordinated with university and USDA researchers to define design criteria and created software scripts, an electrical wiring diagram, and a functioning prototype.
-    </p>
+  <p><strong>Summary:</strong></p>
+  <p>Used Systems Engineering fundamentals to develop a Raspberry Pi-based control system to automate the irrigation of guayule fields for the $15M+ Sustainable Bioeconomy in Arid Regions (SBAR) research project. Coordinated with university and USDA researchers to define design criteria and created software scripts, an electrical wiring diagram, and a functioning prototype.</p>
 
-    <p>
-      This system distributes 120VAC power into three regulated outputs—24VAC, 12VDC, and 5VDC—to support a range of automation and sensing components, with surge and circuit protection at every stage. Incoming 120VAC is routed through a Class III surge protector, with the hot wire protected by a 2A breaker before branching to three power supplies: a 24VAC transformer, a 12VDC supply, and a 5VDC supply. Each supply has its own surge breaker (0.5A, 10A, and 8A respectively) and feeds into dedicated distribution blocks.
-    </p>
-    <p>
-      The 5VDC system powers 13 devices, including a Raspberry Pi, GSM shield, Bluetooth transmitter, 5 flow meters, and 5 pressure transducers. The 12VDC system powers the UC32 pulse counter, a 0–10V ADC board, two 8-channel relay boards, and an 8" display monitor via a barrel jack. The 24VAC system operates only the irrigation solenoid valves and is isolated from ground for safety.
-    </p>
-    <p>
-      Relay boards manage power routing and control. Relay Control Board #1 selectively routes valve neutral lines either to ground (for SHIP bypass) or to the internal system. Relay Control Board #2 toggles 24VAC hot lines to the valves, enabling irrigation control when relays on Board #1 permit it.
-    </p>
-    <p>
-      Flow meters connect through terminal blocks and feed digital pulses to the UC32, while pressure transducers send analog voltage signals to the ADC. Pull-down resistors tied to the DC Negative Bus ensure clean logic levels and accurate readings.
-    </p>
-    <p>
-      All DC negative and ground wires route to a shared Ground Bus, bonded to the enclosure for safety. If a hot wire contacts the enclosure, a low-resistance short trips a breaker instantly, protecting users and equipment.
-    </p>
+  <img src="WINDS_SHIP_Electrical_Wiring_Diagram.png" alt="Wiring Diagram">
+  <img src="Screenshot 2024-06-11 094952.png" alt="System Configuration Diagram">
 
-    <h3>Electrical Wiring Diagram</h3>
-    <img src="WINDS_SHIP_Electrical_Wiring_Diagram.png" alt="Wiring Diagram">
+  <h2>System Design Description</h2>
+  <p>This system distributes 120VAC power into three regulated outputs—24VAC, 12VDC, and 5VDC—to support a range of automation and sensing components, with surge and circuit protection at every stage. Incoming 120VAC is routed through a Class III surge protector, with the hot wire protected by a 2A breaker before branching to three power supplies: a 24VAC transformer, a 12VDC supply, and a 5VDC supply. Each supply has its own surge breaker (0.5A, 10A, and 8A respectively) and feeds into dedicated distribution blocks.</p>
 
-    <h3>System Configuration Diagram</h3>
-    <img src="Screenshot 2024-06-11 094952.png" alt="System Configuration Diagram">
+  <p>The 5VDC system powers 13 devices, including a Raspberry Pi, GSM shield, Bluetooth transmitter, 5 flow meters, and 5 pressure transducers. The 12VDC system powers the UC32 pulse counter, a 0–10V ADC board, two 8-channel relay boards, and an 8" display monitor via a barrel jack. The 24VAC system operates only the irrigation solenoid valves and is isolated from ground for safety.</p>
 
-    <h3>Field-Valve Manifold (Target Hardware)</h3>
-    <img src="c971b6e2-23ea-4481-855d-2b98d4ae9bd7.png" alt="Valves in the field">
+  <p>Relay boards manage power routing and control. Relay Control Board #1 selectively routes valve neutral lines either to ground (for SHIP bypass) or to the internal system. Relay Control Board #2 toggles 24VAC hot lines to the valves, enabling irrigation control when relays on Board #1 permit it.</p>
 
-    <h3>Pulse Counter Workbench Testing</h3>
-    <img src="1e1aebf0-57fb-4819-a5e5-0fa066df140f.png" alt="Pulse Counter Test">
-    <p>
-      We needed to find a way to measure the flow rate from five Netafim 1” M-Series analog flowmeters with pulse output. These cost around $156 each, whereas digital flow meters can be $600+. No suitable 5-channel pulse counter was available under $400. Water flow closes a reed switch once per gallon. Using an Arduino and a couple resistors, we built our own for ~$35. The device works reliably and communicates easily with the Raspberry Pi.
-    </p>
+  <p>Flow meters connect through terminal blocks and feed digital pulses to the UC32, while pressure transducers send analog voltage signals to the ADC. Pull-down resistors tied to the DC Negative Bus ensure clean logic levels and accurate readings.</p>
 
-    <h3>System Integration Testbed</h3>
-    <img src="97656398-d0c0-4100-8356-10cce12171e4.png" alt="Irrigation system prototype hardware testbed">
-    <p>
-      This image shows the functional testbed used to validate the core architecture of the irrigation control system, including the Raspberry Pi, GSM shield, I2C relay and ADC boards, and an 8-inch touchscreen running Python control scripts.
-    </p>
+  <p>All DC negative and ground wires route to a shared Ground Bus, bonded to the enclosure for safety. If a hot wire contacts the enclosure, a low-resistance short trips a breaker instantly, protecting users and equipment.</p>
 
-  </details>
+  <h2>Project Photos</h2>
+  <img src="c971b6e2-23ea-4481-855d-2b98d4ae9bd7.png" alt="Irrigation Valve Array">
+  <p><strong>Field Valves:</strong> This is the actual set of Netafim irrigation valves that the system was designed to control.</p>
+
+  <img src="1e1aebf0-57fb-4819-a5e5-0fa066df140f.png" alt="Pulse Counter Testing">
+  <p><strong>Pulse Counter:</strong> A breadboarded Arduino pulse counter setup used to measure flow rates from low-cost Netafim analog flow meters. Successfully reduced expected cost from over $400 to ~$35 for a 5-channel setup.</p>
+
+  <img src="97656398-d0c0-4100-8356-10cce12171e4.png" alt="System Testbed">
+  <p><strong>Testbed:</strong> Photo of the Raspberry Pi-based testbed system with connected relay boards, shields, and touchscreen. Python scripts were used to control valve states and verify component functionality.</p>
 
 </body>
 </html>
