@@ -47,6 +47,9 @@
     .back-button:hover {
       background-color: #00529B;
     }
+    p, ul {
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -57,14 +60,11 @@
   <main>
     <h2>Project Summary</h2>
     <p>
-      Designed and built a working prototype for the SBAR WINDS Smart Irrigation Control System — a field-deployable solution for automating irrigation in guayule research plots. This effort was part of the $15M+ USDA-funded <em>Sustainable Bioeconomy for Arid Regions (SBAR)</em> project.
-    </p>
-    <p>
-      The system integrates solenoid valve control, pressure and flow measurement, and wireless data communication — coordinated by a Raspberry Pi. I defined system-level requirements with USDA and university stakeholders, sourced and integrated hardware, wrote control and data logging scripts, and produced full electrical documentation.
+      Used Systems Engineering fundamentals to develop a Raspberry Pi-based control system to automate the irrigation of guayule fields for the $15M+ Sustainable Bioeconomy in Arid Regions (SBAR) research project. Coordinated with university and USDA researchers to define design criteria and created software scripts, an electrical wiring diagram, and a functioning prototype.
     </p>
 
     <h2>System Architecture</h2>
-    <img src="Screenshot%202024-06-11%20094952.png" alt="Current System Configuration Diagram" />
+    <img src="Screenshot 2024-06-11 094952.png" alt="Current System Configuration Diagram" />
 
     <ul>
       <li><strong>Primary controller:</strong> Raspberry Pi with display & GSM modem</li>
@@ -78,10 +78,8 @@
     <img src="WINDS_SHIP_Electrical_Wiring_Diagram.png" alt="Electrical Wiring Diagram" />
 
     <p>
-      This full-scale wiring diagram was created to document system interconnects and support reproducibility. All field wiring was color-coded and labeled to match the schematic, supporting installation and maintenance.
+      This system distributes 120VAC power into three regulated outputs—24VAC, 12VDC, and 5VDC—to support a range of automation and sensing components, with surge and circuit protection at every stage. Incoming 120VAC is routed through a Class III surge protector, with the hot wire protected by a 2A breaker before branching to three power supplies: a 24VAC transformer, a 12VDC supply, and a 5VDC supply. Each supply has its own surge breaker (0.5A, 10A, and 8A respectively) and feeds into dedicated distribution blocks.
     </p>
 
-    <a href="index.html" class="back-button">← Back to Portfolio</a>
-  </main>
-</body>
-</html>
+    <p>
+      The 5VDC system powers 13 devices, including a Raspberry Pi, GSM shield, Bluetooth transmitter, 5 flow meters, and 5 pressure transducers. The 12VDC system powers the UC32 pulse counter, a 0–10V ADC board, two 8-channel relay boards, and an 8" display monitor via a barrel jack. The 24VAC system operates only the irrigation solenoid v
