@@ -82,4 +82,22 @@
     </p>
 
     <p>
-      The 5VDC system powers 13 devices, including a Raspberry Pi, GSM shield, Bluetooth transmitter, 5 flow meters, and 5 pressure transducers. The 12VDC system powers the UC32 pulse counter, a 0–10V ADC board, two 8-channel relay boards, and an 8" display monitor via a barrel jack. The 24VAC system operates only the irrigation solenoid v
+      The 5VDC system powers 13 devices, including a Raspberry Pi, GSM shield, Bluetooth transmitter, 5 flow meters, and 5 pressure transducers. The 12VDC system powers the UC32 pulse counter, a 0–10V ADC board, two 8-channel relay boards, and an 8" display monitor via a barrel jack. The 24VAC system operates only the irrigation solenoid valves and is isolated from ground for safety.
+    </p>
+
+    <p>
+      Relay boards manage power routing and control. Relay Control Board #1 selectively routes valve neutral lines either to ground (for SHIP bypass) or to the internal system. Relay Control Board #2 toggles 24VAC hot lines to the valves, enabling irrigation control when relays on Board #1 permit it.
+    </p>
+
+    <p>
+      Flow meters connect through terminal blocks and feed digital pulses to the UC32, while pressure transducers send analog voltage signals to the ADC. Pull-down resistors tied to the DC Negative Bus ensure clean logic levels and accurate readings.
+    </p>
+
+    <p>
+      All DC negative and ground wires route to a shared Ground Bus, bonded to the enclosure for safety. If a hot wire contacts the enclosure, a low-resistance short trips a breaker instantly, protecting users and equipment.
+    </p>
+
+    <a href="index.html" class="back-button">← Back to Portfolio</a>
+  </main>
+</body>
+</html>
