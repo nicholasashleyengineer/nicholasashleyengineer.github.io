@@ -26,15 +26,22 @@
       text-align: left;
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     header img {
       height: 80px;
+      width: 80px;
       border-radius: 50%;
       margin-right: 1rem;
     }
 
-    .summary, .portfolio-explanation {
+    h1, h2 {
+      margin: 0;
+      padding: 0;
+    }
+
+    .summary, .portfolio-explanation, .projects {
       padding: 1rem;
       max-width: 800px;
       margin: auto;
@@ -54,6 +61,7 @@
       align-items: center;
       margin: 1rem;
       max-width: 250px;
+      text-align: center;
     }
 
     .skill img {
@@ -64,13 +72,7 @@
 
     .skill-description {
       font-size: 0.9rem;
-      text-align: center;
-    }
-
-    .projects {
-      padding: 1rem;
-      max-width: 800px;
-      margin: auto;
+      margin-top: 0.5rem;
     }
 
     .project-link {
@@ -84,20 +86,41 @@
     .project-link:hover {
       text-decoration: underline;
     }
+
+    .toggle-container {
+      margin-right: 1rem;
+    }
+
+    .toggle-btn {
+      background-color: #ffffff33;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: white;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
   </style>
 </head>
-<body>
+<body class="dark-mode">
 
   <header>
-    <img src="673958563763.png" alt="Nick Ashley">
-    <h1>Nick Ashley</h1>
+    <div style="display: flex; align-items: center;">
+      <img src="673958563763.png" alt="Nick Ashley">
+      <h1>Nick Ashley</h1>
+    </div>
+    <div class="toggle-container">
+      <button class="toggle-btn" onclick="toggleMode()">Toggle Light/Dark</button>
+    </div>
   </header>
 
   <div class="summary">
-    <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, listening to audiobooks, and playing strategy games.</p>
+    <h2>Engineering Portfolio</h2>
+    <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, li...
   </div>
 
   <div class="portfolio-explanation">
+    <h2>About This Portfolio</h2>
     <p>This portfolio highlights the skills that I bring to the table as an engineer, which I consider to be my core strengths. It also highlights some of the projects I've worked on outside of my career, since the proprietary nature of my professional experience limits the amount of detail I can share publicly.</p>
   </div>
 
@@ -119,8 +142,24 @@
   </div>
 
   <div class="projects">
+    <h2>Projects</h2>
     <a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
   </div>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        body.style.backgroundColor = "#ffffff";
+        body.style.color = "#000000";
+      } else {
+        body.classList.add("dark-mode");
+        body.style.backgroundColor = "#121212";
+        body.style.color = "#f0f0f0";
+      }
+    }
+  </script>
 
 </body>
 </html>
