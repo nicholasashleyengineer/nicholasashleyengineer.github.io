@@ -49,30 +49,32 @@
 
     .skills-container {
       display: flex;
-      justify-content: space-around;
-      align-items: flex-start;
+      justify-content: center;
       flex-wrap: wrap;
       padding: 2rem;
     }
 
     .skill {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       margin: 1rem;
-      max-width: 250px;
-      text-align: center;
+      position: relative;
     }
 
     .skill img {
       height: 100px;
       width: auto;
-      margin-bottom: 0.5rem;
+      cursor: pointer;
     }
 
-    .skill-description {
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+    .tooltip {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      color: white;
+      padding: 0.75rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      max-width: 220px;
+      z-index: 1000;
     }
 
     .project-link {
@@ -118,7 +120,7 @@
 
   <div class="summary">
     <h2>About Me</h2>
-    <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, li...
+    <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, listening to audiobooks, and playing strategy games.</p>
   </div>
 
   <div class="portfolio-explanation">
@@ -128,18 +130,14 @@
 
   <div class="skills-container">
     <div class="skill">
-      <img src="S01.png" alt="Satellite AI&T">
-      <strong>Satellite Assembly, Integration & Test (AI&T)</strong>
-      <div class="skill-description">
-        I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.
-      </div>
+      <img src="S01.png" alt="Satellite AI&T"
+           onmousemove="showTooltip(event, 'Satellite Assembly, Integration & Test (AI&T)', 'I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.')"
+           onmouseout="hideTooltip()" />
     </div>
     <div class="skill">
-      <img src="S02.png" alt="Technical Documentation">
-      <strong>Technical Documentation</strong>
-      <div class="skill-description">
-        Authored various forms of technical documentation, including Test Information Sheets (TISs) defining major satellite integration tasks at a high level, tutorials for searching a software database, and a Statement of Work (SOW) for performing spaceflight hardware testing at a subcontractor's facility.
-      </div>
+      <img src="S02.png" alt="Technical Documentation"
+           onmousemove="showTooltip(event, 'Technical Documentation', 'Authored various forms of technical documentation, including Test Information Sheets (TISs), tutorials for internal databases, and a Statement of Work (SOW) for subcontracted testing.')"
+           onmouseout="hideTooltip()" />
     </div>
   </div>
 
@@ -147,6 +145,8 @@
     <h2>Projects</h2>
     <a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
   </div>
+
+  <div id="tooltip" class="tooltip"></div>
 
   <script>
     function toggleMode() {
@@ -160,6 +160,18 @@
         body.style.backgroundColor = "#121212";
         body.style.color = "#f0f0f0";
       }
+    }
+
+    function showTooltip(event, title, description) {
+      const tooltip = document.getElementById("tooltip");
+      tooltip.innerHTML = "<strong>" + title + "</strong><br>" + description;
+      tooltip.style.display = "block";
+      tooltip.style.left = (event.pageX + 15) + "px";
+      tooltip.style.top = (event.pageY - 30) + "px";
+    }
+
+    function hideTooltip() {
+      document.getElementById("tooltip").style.display = "none";
     }
   </script>
 
