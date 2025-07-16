@@ -23,10 +23,22 @@
     }
 
     header {
-      padding: 1.5em;
-      text-align: center;
+      padding: 2em 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5em;
       background-color: #003366;
       color: white;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
     }
 
     .toggle-container {
@@ -53,6 +65,11 @@
       padding: 2em;
       max-width: 1000px;
       margin: auto;
+    }
+
+    .summary {
+      margin-bottom: 2em;
+      line-height: 1.6;
     }
 
     .project-tile {
@@ -131,11 +148,23 @@
   <div class="toggle-container" onclick="toggleMode()">🌙 Toggle Dark Mode</div>
 
   <header>
-    <h1>Nicholas Ashley</h1>
-    <p>Engineering Portfolio</p>
+    <img src="673958563763.png" alt="Nick Ashley Photo" />
+    <div>
+      <h1>Nicholas Ashley</h1>
+      <p>Engineering Portfolio</p>
+    </div>
   </header>
 
   <main>
+    <section class="summary">
+      <h2>About Me</h2>
+      <p>Hi, I’m Nick Ashley! I’m a passionate and dedicated aerospace engineer with five years of industry experience. I’ve contributed to major efforts at Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional coordination, and the evaluation of software tools. I hold both B.S. and M.S. degrees in Chemical Engineering from the University of Arizona.</p>
+      <p>Outside of work, I enjoy drumming and producing music, spending time with friends, listening to audiobooks, and playing strategy games.</p>
+
+      <h2>About This Portfolio</h2>
+      <p>This portfolio showcases the skills I consider my core strengths as an engineer. It also features several independent projects I’ve worked on outside of my professional roles. Due to the proprietary nature of my industry work, I’m limited in how much detail I can publicly share, but these examples reflect my approach to problem solving, system design, and hands-on implementation.</p>
+    </section>
+
     <div class="project-tile">
       <h2><a href="project1.html">SBAR WINDS Smart Irrigation Control System</a></h2>
       <p>Raspberry Pi-based automated irrigation system with field-tested sensors, custom power routing, and cellular connectivity. Developed for the USDA-backed SBAR project.</p>
