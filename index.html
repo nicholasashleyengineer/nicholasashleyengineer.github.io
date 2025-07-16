@@ -4,124 +4,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nick Ashley's Engineering Portfolio</title>
+  <title>Nick Ashley – Engineering Portfolio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #000000;
-      margin: 0;
-      padding: 0;
+    :root {
+      --dark-bg: #121212;
+      --dark-text: #f0f0f0;
+      --light-bg: #ffffff;
+      --light-text: #000000;
     }
-    .header {
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    header {
       background-color: #003366;
       color: white;
-      padding: 20px;
+      padding: 1em;
       position: sticky;
       top: 0;
+      z-index: 1000;
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
-    .header img {
-      height: 100px;
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: center;
+      padding: 1em;
+    }
+
+    .profile-container img {
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      margin-right: 20px;
+      margin-right: 1em;
+      object-fit: cover;
     }
+
     .summary {
-      padding: 20px;
+      max-width: 800px;
     }
+
     .skills-container {
       display: flex;
+      justify-content: space-around;
+      padding: 2em;
       flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
     }
-    .skill-box {
-      width: 200px;
-      height: 220px;
-      border: 2px solid #003366;
+
+    .skill {
       text-align: center;
-      transition: background-color 0.3s, border-color 0.3s;
+      margin: 1em;
       position: relative;
-      padding: 10px;
     }
-    .skill-box:hover {
-      background-color: #ffe6e6;
-      border-color: #ff6600;
-    }
-    .skill-box img {
+
+    .skill img {
       width: 100px;
-      height: 100px;
       transition: opacity 0.3s;
+      cursor: pointer;
     }
-    .hover-text {
+
+    .skill-description {
       display: none;
       position: absolute;
-      bottom: 10px;
-      left: 10px;
-      right: 10px;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 220px;
+      background-color: #003366;
+      color: white;
+      padding: 0.5em;
+      border-radius: 5px;
       font-size: 0.9em;
-      color: #333;
+      z-index: 10;
     }
-    .skill-box:hover .hover-text {
+
+    .skill:hover .skill-description {
       display: block;
     }
-    .skill-title {
-      margin-top: 10px;
-      font-weight: bold;
+
+    .projects {
+      padding: 2em;
+      text-align: center;
+    }
+
+    .projects a {
+      color: #4da6ff;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    .mode-toggle {
+      margin-right: 1em;
+      cursor: pointer;
+      background: none;
+      border: 1px solid white;
+      padding: 0.5em 1em;
+      color: white;
+      border-radius: 4px;
     }
   </style>
 </head>
-<body class="dark-mode">
+<body>
+  <header>
+    <h1>Nick Ashley – Engineering Portfolio</h1>
+    <button class="mode-toggle" onclick="toggleMode()">Light Mode</button>
+  </header>
 
-  <div class="header">
+  <div class="profile-container">
     <img src="673958563763.png" alt="Nick Ashley Headshot">
-    <h1>Nick Ashley's Engineering Portfolio</h1>
-  </div>
-
-  <div class="summary">
-    <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, listening to audiobooks, and playing strategy games.</p>
-    <p>This portfolio highlights the skills that I bring to the table as an engineer, the ones that I consider to be my core strengths. It also highlights some of the projects I've worked on outside of my career, since due to the proprietary nature of my professional experience, I’m limited in the amount of detail I can go into regarding those.</p>
-  </div>
-
-  <div class="skills-container">
-    <div class="skill-box" onmouseover="toggleImage(true)" onmouseout="toggleImage(false)">
-      <img id="ai-skill-img" src="S01.png" alt="AI Skill Icon">
-      <div class="skill-title">Satellite Assembly, Integration & Test (AI&T)</div>
-      <div class="hover-text">Rollover Skill text 1</div>
+    <div class="summary">
+      <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, listening to audiobooks, and playing strategy games.</p>
+      <p>This portfolio highlights the skills that I bring to the table as an engineer, those that I consider to be my core strengths. It also highlights some of the projects I've worked on outside of my career, as due to the proprietary nature of my professional experience, I am limited in the amount of detail that I can go into regarding these.</p>
     </div>
   </div>
 
-  <script>
-    function toggleImage(isHover) {
-      const img = document.getElementById('ai-skill-img');
-      img.src = isHover ? 'S01g.png' : 'S01.png';
-    }
-  </script>
+  <div class="skills-container">
+    <div class="skill">
+      <img src="S01.png" onmouseover="this.src='S01g.png'" onmouseout="this.src='S01.png'" alt="AI&T Skill">
+      <p>Satellite Assembly, Integration & Test (AI&T)</p>
+      <div class="skill-description">I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.</div>
+    </div>
+    <div class="skill">
+      <img src="S02.png" onmouseover="this.src='S02g.png'" onmouseout="this.src='S02.png'" alt="Skill 2">
+      <p>Skill 2</p>
+      <div class="skill-description">Skill 2 description goes here.</div>
+    </div>
+    <div class="skill">
+      <img src="S03.png" onmouseover="this.src='S03g.png'" onmouseout="this.src='S03.png'" alt="Skill 3">
+      <p>Skill 3</p>
+      <div class="skill-description">Skill 3 description goes here.</div>
+    </div>
+    <div class="skill">
+      <img src="S04.png" onmouseover="this.src='S04g.png'" onmouseout="this.src='S04.png'" alt="Skill 4">
+      <p>Skill 4</p>
+      <div class="skill-description">Skill 4 description goes here.</div>
+    </div>
+    <div class="skill">
+      <img src="S05.png" onmouseover="this.src='S05g.png'" onmouseout="this.src='S05.png'" alt="Skill 5">
+      <p>Skill 5</p>
+      <div class="skill-description">Skill 5 description goes here.</div>
+    </div>
+  </div>
 
+  <div class="projects">
+    <a href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
+  </div>
+
+  <script>
+    function toggleMode() {
+      const root = document.documentElement;
+      const isDark = root.style.getPropertyValue('--dark-bg') === getComputedStyle(root).getPropertyValue('--background-color');
+      if (document.body.style.backgroundColor === "rgb(18, 18, 18)") {
+        root.style.setProperty('--dark-bg', '#ffffff');
+        root.style.setProperty('--dark-text', '#000000');
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#000000';
+        document.querySelector(".mode-toggle").textContent = "Dark Mode";
+      } else {
+        root.style.setProperty('--dark-bg', '#121212');
+        root.style.setProperty('--dark-text', '#f0f0f0');
+        document.body.style.backgroundColor = '#121212';
+        document.body.style.color = '#f0f0f0';
+        document.querySelector(".mode-toggle").textContent = "Light Mode";
+      }
+    }
+    window.onload = () => {
+      document.body.style.backgroundColor = '#121212';
+      document.body.style.color = '#f0f0f0';
+    };
+  </script>
 </body>
 </html>
-<div class="skill-box">
-  <img src="S02g.png" alt="Skill Icon" class="skill-icon" onmouseover="this.src='S02.png'" onmouseout="this.src='S02g.png'">
-  <div class="skill-title">Skill Title 2</div>
-  <div class="skill-description">Description for Skill 2.</div>
-</div>
-
-<div class="skill-box">
-  <img src="S03g.png" alt="Skill Icon" class="skill-icon" onmouseover="this.src='S03.png'" onmouseout="this.src='S03g.png'">
-  <div class="skill-title">Skill Title 3</div>
-  <div class="skill-description">Description for Skill 3.</div>
-</div>
-
-<div class="skill-box">
-  <img src="S04g.png" alt="Skill Icon" class="skill-icon" onmouseover="this.src='S04.png'" onmouseout="this.src='S04g.png'">
-  <div class="skill-title">Skill Title 4</div>
-  <div class="skill-description">Description for Skill 4.</div>
-</div>
-
-<div class="skill-box">
-  <img src="S05g.png" alt="Skill Icon" class="skill-icon" onmouseover="this.src='S05.png'" onmouseout="this.src='S05g.png'">
-  <div class="skill-title">Skill Title 5</div>
-  <div class="skill-description">Description for Skill 5.</div>
-</div>
-
