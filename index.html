@@ -72,7 +72,7 @@
     }
   </style>
 </head>
-<body>
+<body class="dark-mode">
 
   <div class="header">
     <img src="673958563763.png" alt="Nick Ashley Headshot">
@@ -86,8 +86,8 @@
 
   <div class="skills-container">
     <div class="skill-box" onmouseover="toggleImage(true)" onmouseout="toggleImage(false)">
-      <img id="ai-skill-img" src="S01g.png" alt="AI Skill Icon">
-      <div class="skill-title">Effectively Uses AI</div>
+      <img id="ai-skill-img" src="S01.png" alt="AI Skill Icon">
+      <div class="skill-title">Satellite Assembly, Integration & Test (AI&T)</div>
       <div class="hover-text">Rollover Skill text 1</div>
     </div>
   </div>
@@ -95,9 +95,33 @@
   <script>
     function toggleImage(isHover) {
       const img = document.getElementById('ai-skill-img');
-      img.src = isHover ? 'S01.png' : 'S01g.png';
+      img.src = isHover ? 'S01g.png' : 'S01.png';
     }
   </script>
 
 </body>
 </html>
+<div class="skill-box">
+  <img src="S02g.png" alt="Skill Icon" class="skill-icon" onmouseover="this.src='S02.png'" onmouseout="this.src='S02g.png'">
+  <div class="skill-title">Skill Title 2</div>
+  <div class="skill-description">Description for Skill 2.</div>
+</div>
+
+<div class="skill-box">
+  <img src="S03g.png" alt="Skill Icon" class="skill-icon" onmouseover="this.src='S03.png'" onmouseout="this.src='S03g.png'">
+  <div class="skill-title">Skill Title 3</div>
+  <div class="skill-description">Description for Skill 3.</div>
+</div>
+
+<div class="skill-box">
+  <img src="S04g.png" alt="Skill Icon" class="skill-icon" onmouseover="this.src='S04.png'" onmouseout="this.src='S04g.png'">
+  <div class="skill-title">Skill Title 4</div>
+  <div class="skill-description">Description for Skill 4.</div>
+</div>
+
+<div class="skill-box">
+  <img src="S05g.png" alt="Skill Icon" class="skill-icon" onmouseover="this.src='S05.png'" onmouseout="this.src='S05g.png'">
+  <div class="skill-title">Skill Title 5</div>
+  <div class="skill-description">Description for Skill 5.</div>
+</div>
+
