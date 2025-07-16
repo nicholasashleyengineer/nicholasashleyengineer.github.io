@@ -1,11 +1,12 @@
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+
+<html data-theme="dark" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nick Ashley - Engineering Portfolio</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nick Ashley - Engineering Portfolio</title>
+<style>
     :root {
       --bg-color: #121212;
       --text-color: #f0f0f0;
@@ -66,7 +67,6 @@
     }
 
     .tooltip {
-      font-size: 1rem;
       text-align: center;
       display: none;
       position: absolute;
@@ -81,7 +81,9 @@
     }
 
     .tooltip img {
-      display: none;
+      max-height: 240px;
+      height: auto;
+      width: auto;
       margin-bottom: 1rem;
       display: block;
       height: 60px;
@@ -118,74 +120,35 @@
   </style>
 </head>
 <body class="dark-mode">
+<div class="toggle-container">
+<button class="toggle-btn" onclick="toggleMode()">Toggle Light/Dark</button>
+</div>
+<header>
+<img alt="Nick Ashley" src="673958563763.png"/>
+<h1>Nick Ashley</h1>
+<h2>Engineering Portfolio</h2>
+</header>
+<div class="summary">
+<h2>About Me</h2>
+<p>Hi, I’m Nick Ashley! I’m an aerospace engineer with five years of industry experience, including roles at Blue Origin and Northrop Grumman. My background spans test engineering, systems integration, requirements development, and cross-functional project coordination. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, I enjoy drumming and music production, audiobooks, strategy games, and quality time with friends.</p>
+</div>
+<div class="portfolio-explanation">
+<h2>About This Portfolio</h2>
+<p>This portfolio showcases the core engineering skills I bring to the table, including both technical and cross-disciplinary strengths. Some projects featured here were developed independently, as I’m limited in the level of detail I can share about proprietary work from my career.</p>
+</div>
+<div class="skills-container">
+<div class="skill">
+<img alt="Satellite AI&amp;T" src="S01.png"/>
+</div>
+<div class="skill">
+<img alt="Technical Documentation" src="S02.png"/>
+</div>
+</div>
+<div class="projects">
+<h2>Projects</h2>
+<a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
+</div>
 
-  <div class="toggle-container">
-    <button class="toggle-btn" onclick="toggleMode()">Toggle Light/Dark</button>
-  </div>
-
-  <header>
-    <img src="673958563763.png" alt="Nick Ashley">
-    <h1>Nick Ashley</h1>
-    <h2>Engineering Portfolio</h2>
-  </header>
-
-  <div class="summary">
-    <h2>About Me</h2>
-    <p>Hi, I’m Nick Ashley! I’m an aerospace engineer with five years of industry experience, including roles at Blue Origin and Northrop Grumman. My background spans test engineering, systems integration, requirements development, and cross-functional project coordination. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, I enjoy drumming and music production, audiobooks, strategy games, and quality time with friends.</p>
-  </div>
-
-  <div class="portfolio-explanation">
-    <h2>About This Portfolio</h2>
-    <p>This portfolio showcases the core engineering skills I bring to the table, including both technical and cross-disciplinary strengths. Some projects featured here were developed independently, as I’m limited in the level of detail I can share about proprietary work from my career.</p>
-  </div>
-
-  <div class="skills-container">
-    <div class="skill"
-      onmousemove="showTooltip(event, 'S01.png', 'Satellite Assembly, Integration & Test (AI&T)', 'I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.')"
-      onmouseout="hideTooltip()">
-      <img src="S01.png" alt="Satellite AI&T">
-    </div>
-    <div class="skill"
-      onmousemove="showTooltip(event, 'S02.png', 'Technical Documentation', 'Authored various forms of technical documentation, including Test Information Sheets (TISs), tutorials for internal databases, and a Statement of Work (SOW) for subcontracted testing.')"
-      onmouseout="hideTooltip()">
-      <img src="S02.png" alt="Technical Documentation">
-    </div>
-  </div>
-
-  <div class="projects">
-    <h2>Projects</h2>
-    <a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
-  </div>
-
-  <div id="tooltip" class="tooltip"></div>
-
-  <script>
-    function toggleMode() {
-      const body = document.body;
-      if (body.classList.contains("dark-mode")) {
-        body.classList.remove("dark-mode");
-        body.style.backgroundColor = "#ffffff";
-        body.style.color = "#000000";
-      } else {
-        body.classList.add("dark-mode");
-        body.style.backgroundColor = "#121212";
-        body.style.color = "#f0f0f0";
-      }
-    }
-
-    function showTooltip(event, icon, title, description) {
-      const tooltip = document.getElementById("tooltip");
-      tooltip.innerHTML = `<img src="${icon}"><strong>${title}</strong><br>${description}`;
-      tooltip.style.display = "block";
-      tooltip.style.left = (event.pageX + 15) + "px";
-      tooltip.style.top = (event.pageY - 30) + "px";
-    }
-
-    function hideTooltip() {
-      const tooltip = document.getElementById("tooltip");
-      tooltip.style.display = "none";
-    }
-  </script>
 
 </body>
 </html>
