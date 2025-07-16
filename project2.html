@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Senior Design Project: Zero-Emissions Solar Thermal Plant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2em;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .light-mode {
+      background-color: #f8f9fa;
+      color: #222;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #ddd;
+    }
+
+    h1, h2 {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1em 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .toggle-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #fff;
+      border-radius: 5px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      font-size: 0.9em;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .dark-mode .toggle-container {
+      background-color: #333;
+      color: #eee;
+      border-color: #555;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-weight: bold;
+      text-decoration: none;
+      color: #000;
+      z-index: 999;
+    }
+
+    .dark-mode .back-button {
+      background: #333;
+      color: #eee;
+      border-color: #555;
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <a href="index.html" class="back-button">⬅ Back to Home</a>
+  <div class="toggle-container" onclick="toggleMode()">🌙 Toggle Dark Mode</div>
+
+  <h1>Senior Design Project: Zero-Emissions Solar Thermal Plant</h1>
+
+  <p>For my senior design project at the University of Arizona in 2017, I led my team through the development of a conceptual design for a zero-emissions solar thermal power plant. The system featured a field of heliostats (sun-tracking mirrors) that concentrated sunlight onto a central tower receiver. This heat was used to elevate the temperature of molten salt circulating through the tower, which was then stored in an insulated tank. The stored thermal energy was subsequently transferred to a high-pressure CO₂ stream, powering a generator via the supercritical CO₂ Brayton Cycle to produce electricity without emitting greenhouse gases during steady-state operation.</p>
+
+  <img src="GATR_Poster.png" alt="Senior Design Poster" />
+  <p>This was my group's poster. We presented our project at the College of Engineering's Senior Design Day on May 1, 2017.</p>
+
+  <img src="MHRP.png" alt="MATLAB Heat Receiver Positioning Output" />
+  <p>In addition to leading the team, as part of my individual role, I developed a comprehensive MATLAB model that simulated the predicted power output of individual heliostats based on their position relative to the central receiver. The model integrated orbital mechanics equations, solar irradiance data, and chemical engineering principles to account for energy losses due to attenuation. This simulation informed the optimal layout and spacing of the heliostat field in our system design.</p>
+
+  <img src="Scripts1.png" alt="MATLAB Scripts Screenshot" />
+  <img src="GATR_P&ID.png" alt="Process and Instrumentation Diagram" />
+  <p>Our team was honored with the Best Senior Design Team award at the Chemical Engineering Convocation on May 13, 2017.</p>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const isDark = body.classList.contains("dark-mode");
+      body.classList.toggle("dark-mode", !isDark);
+      body.classList.toggle("light-mode", isDark);
+      localStorage.setItem("theme", isDark ? "light" : "dark");
+    }
+
+    window.onload = () => {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") {
+        document.body.classList.remove("light-mode");
+        document.body.classList.add("dark-mode");
+      }
+    };
+  </script>
+</body>
+</html>
