@@ -152,7 +152,7 @@
     <a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
   </div>
 
-  <div id="tooltip" class="tooltip"></div>
+  <div id="tooltip" class="tooltip"><img id="tooltip-img" src="" style="display:none; height:50px; margin-bottom:0.5rem;"><div id="tooltip-text"></div></div>
 
   <script>
     function toggleMode() {
@@ -176,18 +176,27 @@
       tooltip.style.top = (event.pageY - 30) + "px";
     }
 
-    function hideTooltip() {
-      document.getElementById("tooltip").style.display = "none";
-    }
-  
+    
     function showTooltipWithIcon(event, iconSrc, title, description) {
       const tooltip = document.getElementById("tooltip");
-      tooltip.innerHTML = "<img src='" + iconSrc + "' style='height:50px; display:block; margin-bottom:0.5rem;'><strong>" + title + "</strong><br>" + description;
+      const tooltipImg = document.getElementById("tooltip-img");
+      const tooltipText = document.getElementById("tooltip-text");
+      tooltipImg.src = iconSrc;
+      tooltipImg.style.display = 'block';
+      tooltipText.innerHTML = "<strong>" + title + "</strong><br>" + description;
       tooltip.style.display = "block";
       tooltip.style.left = (event.pageX + 15) + "px";
       tooltip.style.top = (event.pageY - 30) + "px";
     }
-</script>
+
+    function hideTooltip() {
+      const tooltip = document.getElementById("tooltip");
+      tooltip.style.display = "none";
+    }
+
+      document.getElementById("tooltip").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
