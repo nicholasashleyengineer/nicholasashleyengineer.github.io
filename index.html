@@ -117,7 +117,19 @@
       cursor: pointer;
       border-radius: 5px;
     }
-  </style>
+  
+.tooltip {
+  position: absolute;
+  background-color: #222;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1.25rem;
+  max-width: 300px;
+  z-index: 1000;
+  pointer-events: none;
+}
+</style>
 </head>
 <body class="dark-mode">
 <div class="toggle-container">
@@ -137,10 +149,10 @@
 <p>This portfolio showcases the core engineering skills I bring to the table, including both technical and cross-disciplinary strengths. Some projects featured here were developed independently, as I’m limited in the level of detail I can share about proprietary work from my career.</p>
 </div>
 <div class="skills-container">
-<div class="skill">
+<div class="skill" onmousemove="showTooltip(event, 'Satellite Assembly, Integration &amp; Test (AI&amp;T)', 'I have experience planning critical mechanical operations, drafting high-level requirements for AI&amp;T tasks, and executing structural tests on spaceflight hardware.')" onmouseout="hideTooltip()">
 <img alt="Satellite AI&amp;T" src="S01.png"/>
 </div>
-<div class="skill">
+<div class="skill" onmousemove="showTooltip(event, 'Technical Documentation', 'I have authored various forms of technical documentation, including Test Information Sheets (TISs) defining major satellite integration tasks at a high level, tutorials for searching a software database, and a Statement of Work (SOW) for performing spaceflight hardware testing at a subcontractor\'s facility.')" onmouseout="hideTooltip()">
 <img alt="Technical Documentation" src="S02.png"/>
 </div>
 </div>
@@ -148,7 +160,39 @@
 <h2>Projects</h2>
 <a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
 </div>
+<div class="tooltip" id="tooltip"><div id="tooltip-title" style="font-weight:bold; margin-bottom:0.3rem;"></div><div id="tooltip-description"></div></div>
+
+<div class="tooltip" id="tooltip" style="display:none;">
 
 
+</div>
+
+
+<script>
+  function showTooltip(event, title, description) {
+    var tooltip = document.getElementById("tooltip");
+    var tooltipTitle = document.getElementById("tooltip-title");
+    var tooltipDescription = document.getElementById("tooltip-description");
+
+    tooltipTitle.textContent = title;
+    tooltipDescription.textContent = description;
+    tooltip.style.display = "block";
+    tooltip.style.left = event.pageX + 15 + "px";
+    tooltip.style.top = event.pageY + 15 + "px";
+  }
+
+  function hideTooltip() {
+    var tooltip = document.getElementById("tooltip");
+    tooltip.style.display = "none";
+  }
+
+  document.addEventListener("mousemove", function(event) {
+    var tooltip = document.getElementById("tooltip");
+    if (tooltip && tooltip.style.display === "block") {
+      tooltip.style.left = event.pageX + 15 + "px";
+      tooltip.style.top = event.pageY + 15 + "px";
+    }
+  });
+</script>
 </body>
 </html>
