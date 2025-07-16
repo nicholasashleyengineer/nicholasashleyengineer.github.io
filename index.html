@@ -130,13 +130,19 @@
 
   <div class="skills-container">
     <div class="skill">
-      <img src="S01.png" alt="Satellite AI&T"
-           onmousemove="showTooltipWithIcon(event, "S01.png", "Satellite Assembly, Integration & Test (AI&T)", "I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.")"
+      <img src="S01.png"
+    onmouseover="showTooltipWithIcon(event, 'S01.png', 'Satellite Assembly, Integration & Test (AI&T)', 
+    'I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.')"
+    onmouseout="hideTooltip()"  alt="Satellite AI&T"
+           onmousemove="showTooltip(event, 'Satellite Assembly, Integration & Test (AI&T)', 'I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.')"
            onmouseout="hideTooltip()" />
     </div>
     <div class="skill">
-      <img src="S02.png" alt="Technical Documentation"
-           onmousemove="showTooltipWithIcon(event, "S02.png", "Technical Documentation", "Authored various forms of technical documentation, including Test Information Sheets (TISs), tutorials for internal databases, and a Statement of Work (SOW) for subcontracted testing.")"
+      <img src="S02.png"
+    onmouseover="showTooltipWithIcon(event, 'S02.png', 'Technical Documentation',
+    'Authored various forms of technical documentation, including Test Information Sheets (TISs), tutorials for internal databases, and a Statement of Work (SOW) for subcontracted testing.')"
+    onmouseout="hideTooltip()"  alt="Technical Documentation"
+           onmousemove="showTooltip(event, 'Technical Documentation', 'Authored various forms of technical documentation, including Test Information Sheets (TISs), tutorials for internal databases, and a Statement of Work (SOW) for subcontracted testing.')"
            onmouseout="hideTooltip()" />
     </div>
   </div>
@@ -162,17 +168,7 @@
       }
     }
 
-    function showTooltipWithIcon(event, iconSrc, title, description) {
-      const tooltip = document.getElementById("tooltip");
-      tooltip.innerHTML = "<img src='" + iconSrc + "' style='height:50px; display:block; margin-bottom:0.5rem;'><strong>" + title + "</strong><br>" + description;
-      tooltip.style.display = "block";
-      tooltip.style.left = (event.pageX + 15) + "px";
-      tooltip.style.top = (event.pageY - 30) + "px";
-    }
-
     function showTooltip(event, title, description) {
-      showTooltipWithIcon(event, '', title, description);
-    }
       const tooltip = document.getElementById("tooltip");
       tooltip.innerHTML = "<strong>" + title + "</strong><br>" + description;
       tooltip.style.display = "block";
@@ -183,7 +179,15 @@
     function hideTooltip() {
       document.getElementById("tooltip").style.display = "none";
     }
-  </script>
+  
+    function showTooltipWithIcon(event, iconSrc, title, description) {
+      const tooltip = document.getElementById("tooltip");
+      tooltip.innerHTML = "<img src='" + iconSrc + "' style='height:50px; display:block; margin-bottom:0.5rem;'><strong>" + title + "</strong><br>" + description;
+      tooltip.style.display = "block";
+      tooltip.style.left = (event.pageX + 15) + "px";
+      tooltip.style.top = (event.pageY - 30) + "px";
+    }
+</script>
 
 </body>
 </html>
