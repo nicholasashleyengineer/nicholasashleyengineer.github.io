@@ -37,18 +37,23 @@
       font-size: 1.5em;
     }
 
-    .profile-container {
+    .header-left {
       display: flex;
       align-items: center;
-      padding: 1em;
     }
 
-    .profile-container img {
-      width: 150px;
-      height: 150px;
+    .header-left img {
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      margin-right: 1em;
       object-fit: cover;
+      margin-right: 1em;
+    }
+
+    .summary-container {
+      display: flex;
+      justify-content: center;
+      padding: 1em;
     }
 
     .summary {
@@ -57,40 +62,26 @@
 
     .skills-container {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       padding: 2em;
+      gap: 2em;
       flex-wrap: wrap;
     }
 
     .skill {
       text-align: center;
-      margin: 1em;
-      position: relative;
+      max-width: 200px;
     }
 
     .skill img {
       width: 100px;
-      transition: opacity 0.3s;
-      cursor: pointer;
+      margin-bottom: 0.5em;
     }
 
     .skill-description {
-      display: none;
-      position: absolute;
-      bottom: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 220px;
-      background-color: #003366;
-      color: white;
-      padding: 0.5em;
-      border-radius: 5px;
       font-size: 0.9em;
-      z-index: 10;
-    }
-
-    .skill:hover .skill-description {
-      display: block;
+      color: var(--dark-text);
+      margin-top: 0.5em;
     }
 
     .projects {
@@ -105,7 +96,7 @@
     }
 
     .mode-toggle {
-      margin-right: 1em;
+      margin-left: auto;
       cursor: pointer;
       background: none;
       border: 1px solid white;
@@ -117,43 +108,35 @@
 </head>
 <body>
   <header>
-    <h1>Nick Ashley – Engineering Portfolio</h1>
+    <div class="header-left">
+      <img src="673958563763.png" alt="Nick Ashley Headshot">
+      <h1>Nick Ashley – Engineering Portfolio</h1>
+    </div>
     <button class="mode-toggle" onclick="toggleMode()">Light Mode</button>
   </header>
 
-  <div class="profile-container">
-    <img src="673958563763.png" alt="Nick Ashley Headshot">
+  <div class="summary-container">
     <div class="summary">
-      <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, listening to audiobooks, and playing strategy games.</p>
+      <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, ...
       <p>This portfolio highlights the skills that I bring to the table as an engineer, those that I consider to be my core strengths. It also highlights some of the projects I've worked on outside of my career, as due to the proprietary nature of my professional experience, I am limited in the amount of detail that I can go into regarding these.</p>
     </div>
   </div>
 
   <div class="skills-container">
     <div class="skill">
-      <img src="S01.png" onmouseover="this.src='S01g.png'" onmouseout="this.src='S01.png'" alt="AI&T Skill">
-      <p>Satellite Assembly, Integration & Test (AI&T)</p>
+      <img src="S01.png" alt="AI&T Skill">
+      <div><strong>Satellite Assembly, Integration & Test (AI&T)</strong></div>
       <div class="skill-description">I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.</div>
     </div>
     <div class="skill">
-      <img src="S02.png" onmouseover="this.src='S02g.png'" onmouseout="this.src='S02.png'" alt="Skill 2">
-      <p>Skill 2</p>
+      <img src="S02.png" alt="Skill 2">
+      <div><strong>Skill 2</strong></div>
       <div class="skill-description">Skill 2 description goes here.</div>
     </div>
     <div class="skill">
-      <img src="S03.png" onmouseover="this.src='S03g.png'" onmouseout="this.src='S03.png'" alt="Skill 3">
-      <p>Skill 3</p>
+      <img src="S03.png" alt="Skill 3">
+      <div><strong>Skill 3</strong></div>
       <div class="skill-description">Skill 3 description goes here.</div>
-    </div>
-    <div class="skill">
-      <img src="S04.png" onmouseover="this.src='S04g.png'" onmouseout="this.src='S04.png'" alt="Skill 4">
-      <p>Skill 4</p>
-      <div class="skill-description">Skill 4 description goes here.</div>
-    </div>
-    <div class="skill">
-      <img src="S05.png" onmouseover="this.src='S05g.png'" onmouseout="this.src='S05.png'" alt="Skill 5">
-      <p>Skill 5</p>
-      <div class="skill-description">Skill 5 description goes here.</div>
     </div>
   </div>
 
@@ -164,21 +147,20 @@
   <script>
     function toggleMode() {
       const root = document.documentElement;
-      const isDark = root.style.getPropertyValue('--dark-bg') === getComputedStyle(root).getPropertyValue('--background-color');
-      if (document.body.style.backgroundColor === "rgb(18, 18, 18)") {
-        root.style.setProperty('--dark-bg', '#ffffff');
-        root.style.setProperty('--dark-text', '#000000');
-        document.body.style.backgroundColor = '#ffffff';
-        document.body.style.color = '#000000';
-        document.querySelector(".mode-toggle").textContent = "Dark Mode";
+      const body = document.body;
+      const toggle = document.querySelector(".mode-toggle");
+
+      if (body.style.backgroundColor === "rgb(18, 18, 18)") {
+        body.style.backgroundColor = '#ffffff';
+        body.style.color = '#000000';
+        toggle.textContent = "Dark Mode";
       } else {
-        root.style.setProperty('--dark-bg', '#121212');
-        root.style.setProperty('--dark-text', '#f0f0f0');
-        document.body.style.backgroundColor = '#121212';
-        document.body.style.color = '#f0f0f0';
-        document.querySelector(".mode-toggle").textContent = "Light Mode";
+        body.style.backgroundColor = '#121212';
+        body.style.color = '#f0f0f0';
+        toggle.textContent = "Light Mode";
       }
     }
+
     window.onload = () => {
       document.body.style.backgroundColor = '#121212';
       document.body.style.color = '#f0f0f0';
