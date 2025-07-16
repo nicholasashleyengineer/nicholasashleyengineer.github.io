@@ -4,167 +4,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nick Ashley – Engineering Portfolio</title>
+  <title>Nick Ashley - Engineering Portfolio</title>
   <style>
-    :root {
-      --dark-bg: #121212;
-      --dark-text: #f0f0f0;
-      --light-bg: #ffffff;
-      --light-text: #000000;
-    }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: var(--dark-bg);
-      color: var(--dark-text);
+      background-color: #001f33;
+      color: white;
     }
 
     header {
       background-color: #003366;
-      color: white;
       padding: 1em;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+    }
+
+    header img {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      margin-right: 20px;
+      background-color: transparent;
     }
 
     header h1 {
+      font-size: 2em;
       margin: 0;
-      font-size: 1.5em;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .header-left img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 1em;
-    }
-
-    .summary-container {
-      display: flex;
-      justify-content: center;
-      padding: 1em;
     }
 
     .summary {
-      max-width: 800px;
+      padding: 1em;
+      max-width: 900px;
+      margin: auto;
     }
 
-    .skills-container {
+    .skills {
       display: flex;
       justify-content: center;
-      padding: 2em;
-      gap: 2em;
+      gap: 40px;
       flex-wrap: wrap;
+      padding: 2em 1em;
     }
 
-    .skill {
+    .skill-box {
       text-align: center;
-      max-width: 200px;
     }
 
-    .skill img {
+    .skill-box img {
       width: 100px;
-      margin-bottom: 0.5em;
+      height: 100px;
     }
 
-    .skill-description {
-      font-size: 0.9em;
-      color: var(--dark-text);
+    .skill-box h3 {
       margin-top: 0.5em;
+      font-size: 1.1em;
+    }
+
+    .description-box {
+      text-align: center;
+      margin: 1em auto;
+      padding: 1em;
+      max-width: 700px;
+      background-color: #002244;
+      border-radius: 8px;
     }
 
     .projects {
-      padding: 2em;
       text-align: center;
+      padding: 2em 0;
     }
 
     .projects a {
-      color: #4da6ff;
+      color: #00ccff;
       text-decoration: none;
       font-size: 1.2em;
     }
 
-    .mode-toggle {
-      margin-left: auto;
-      cursor: pointer;
-      background: none;
-      border: 1px solid white;
-      padding: 0.5em 1em;
-      color: white;
-      border-radius: 4px;
+    .projects a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-left">
-      <img src="673958563763.png" alt="Nick Ashley Headshot">
-      <h1>Nick Ashley – Engineering Portfolio</h1>
-    </div>
-    <button class="mode-toggle" onclick="toggleMode()">Light Mode</button>
+    <img src="673958563763.png" alt="Nick Ashley Headshot" />
+    <h1>Nick Ashley</h1>
   </header>
 
-  <div class="summary-container">
-    <div class="summary">
-      <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, ...
-      <p>This portfolio highlights the skills that I bring to the table as an engineer, those that I consider to be my core strengths. It also highlights some of the projects I've worked on outside of my career, as due to the proprietary nature of my professional experience, I am limited in the amount of detail that I can go into regarding these.</p>
+  <div class="summary">
+    <p>Hi, I’m Nick Ashley! I'm a passionate and dedicated aerospace engineer with five years of experience in the industry. I’ve contributed to major efforts at both Blue Origin and Northrop Grumman, spanning test engineering, requirements definition, cross-functional project coordination, and the evaluation of software tools. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, my hobbies include drumming and producing music, hanging out with friends, listening to audiobooks, and playing strategy games.</p>
+
+    <p>This portfolio highlights the skills that I bring to the table as an engineer, which I consider to be my core strengths. It also highlights some of the projects I've worked on outside of my career, as due to the proprietary nature of my professional experience, I am limited in the amount of detail that I can go into regarding these.</p>
+  </div>
+
+  <div class="skills">
+    <div class="skill-box">
+      <img src="S01g.png" alt="Skill 1 Icon" />
+      <h3>Satellite Assembly, Integration & Test (AI&T)</h3>
+    </div>
+    <div class="skill-box">
+      <img src="S02.png" alt="Skill 2 Icon" />
+      <h3>Technical Documentation</h3>
+    </div>
+    <div class="skill-box">
+      <img src="S03.png" alt="Skill 3 Icon" />
+      <h3>[Skill 3 Title]</h3>
     </div>
   </div>
 
-  <div class="skills-container">
-    <div class="skill">
-      <img src="S01.png" alt="AI&T Skill">
-      <div><strong>Satellite Assembly, Integration & Test (AI&T)</strong></div>
-      <div class="skill-description">I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.</div>
-    </div>
-    <div class="skill">
-      <img src="S02.png" alt="Skill 2">
-      <div><strong>Skill 2</strong></div>
-      <div class="skill-description">Skill 2 description goes here.</div>
-    </div>
-    <div class="skill">
-      <img src="S03.png" alt="Skill 3">
-      <div><strong>Skill 3</strong></div>
-      <div class="skill-description">Skill 3 description goes here.</div>
-    </div>
+  <div class="description-box">
+    <p>I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.</p>
   </div>
 
   <div class="projects">
+    <h2>Projects</h2>
     <a href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
   </div>
-
-  <script>
-    function toggleMode() {
-      const root = document.documentElement;
-      const body = document.body;
-      const toggle = document.querySelector(".mode-toggle");
-
-      if (body.style.backgroundColor === "rgb(18, 18, 18)") {
-        body.style.backgroundColor = '#ffffff';
-        body.style.color = '#000000';
-        toggle.textContent = "Dark Mode";
-      } else {
-        body.style.backgroundColor = '#121212';
-        body.style.color = '#f0f0f0';
-        toggle.textContent = "Light Mode";
-      }
-    }
-
-    window.onload = () => {
-      document.body.style.backgroundColor = '#121212';
-      document.body.style.color = '#f0f0f0';
-    };
-  </script>
 </body>
 </html>
