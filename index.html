@@ -129,6 +129,21 @@
   z-index: 1000;
   pointer-events: none;
 }
+
+.tooltip-title {
+  font-size: 1.5em;
+  color: #FFDC00;
+  font-weight: bold;
+}
+.tooltip-description {
+  font-size: 1em;
+  color: white;
+}
+
+#tooltip {
+  width: 360px !important;
+  font-size: 0.85em !important;
+}
 </style>
 </head>
 <body class="dark-mode">
@@ -160,14 +175,9 @@
 <h2>Projects</h2>
 <a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
 </div>
-<div class="tooltip" id="tooltip"><div id="tooltip-title" style="font-weight:bold; margin-bottom:0.3rem;"></div><div id="tooltip-description"></div></div>
-
+<div class="tooltip" id="tooltip" style="width: 360px"><div class="" id="tooltip-title" style="font-weight:bold; margin-bottom:0.3rem;"></div><div class="" id="tooltip-description"></div></div>
 <div class="tooltip" id="tooltip" style="display:none;">
-
-
 </div>
-
-
 <script>
   function showTooltip(event, title, description) {
     var tooltip = document.getElementById("tooltip");
