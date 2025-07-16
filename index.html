@@ -73,8 +73,15 @@
       padding: 0.75rem;
       border-radius: 5px;
       font-size: 0.85rem;
-      max-width: 220px;
+      max-width: 240px;
       z-index: 1000;
+      pointer-events: none;
+    }
+
+    .tooltip img {
+      display: block;
+      height: 60px;
+      margin: 0 auto 0.5rem auto;
     }
 
     .project-link {
@@ -129,21 +136,15 @@
   </div>
 
   <div class="skills-container">
-    <div class="skill">
-      <img src="S01.png"
-    onmouseover="showTooltipWithIcon(event, 'S01.png', 'Satellite Assembly, Integration & Test (AI&T)', 
-    'I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.')"
-    onmouseout="hideTooltip()"  alt="Satellite AI&T"
-           onmousemove="showTooltip(event, 'Satellite Assembly, Integration & Test (AI&T)', 'I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.')"
-           onmouseout="hideTooltip()" />
+    <div class="skill"
+      onmousemove="showTooltip(event, 'S01.png', 'Satellite Assembly, Integration & Test (AI&T)', 'I have experience planning critical mechanical operations, drafting high-level requirements for AI&T tasks, and executing structural tests on spaceflight hardware.')"
+      onmouseout="hideTooltip()">
+      <img src="S01.png" alt="Satellite AI&T">
     </div>
-    <div class="skill">
-      <img src="S02.png"
-    onmouseover="showTooltipWithIcon(event, 'S02.png', 'Technical Documentation',
-    'Authored various forms of technical documentation, including Test Information Sheets (TISs), tutorials for internal databases, and a Statement of Work (SOW) for subcontracted testing.')"
-    onmouseout="hideTooltip()"  alt="Technical Documentation"
-           onmousemove="showTooltip(event, 'Technical Documentation', 'Authored various forms of technical documentation, including Test Information Sheets (TISs), tutorials for internal databases, and a Statement of Work (SOW) for subcontracted testing.')"
-           onmouseout="hideTooltip()" />
+    <div class="skill"
+      onmousemove="showTooltip(event, 'S02.png', 'Technical Documentation', 'Authored various forms of technical documentation, including Test Information Sheets (TISs), tutorials for internal databases, and a Statement of Work (SOW) for subcontracted testing.')"
+      onmouseout="hideTooltip()">
+      <img src="S02.png" alt="Technical Documentation">
     </div>
   </div>
 
@@ -152,7 +153,7 @@
     <a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
   </div>
 
-  <div id="tooltip" class="tooltip"><img id="tooltip-img" src="" style="display:none; height:50px; margin-bottom:0.5rem;"><div id="tooltip-text"></div></div>
+  <div id="tooltip" class="tooltip"></div>
 
   <script>
     function toggleMode() {
@@ -168,22 +169,9 @@
       }
     }
 
-    function showTooltip(event, title, description) {
+    function showTooltip(event, icon, title, description) {
       const tooltip = document.getElementById("tooltip");
-      tooltip.innerHTML = "<strong>" + title + "</strong><br>" + description;
-      tooltip.style.display = "block";
-      tooltip.style.left = (event.pageX + 15) + "px";
-      tooltip.style.top = (event.pageY - 30) + "px";
-    }
-
-    
-    function showTooltipWithIcon(event, iconSrc, title, description) {
-      const tooltip = document.getElementById("tooltip");
-      const tooltipImg = document.getElementById("tooltip-img");
-      const tooltipText = document.getElementById("tooltip-text");
-      tooltipImg.src = iconSrc;
-      tooltipImg.style.display = 'block';
-      tooltipText.innerHTML = "<strong>" + title + "</strong><br>" + description;
+      tooltip.innerHTML = `<img src="${icon}"><strong>${title}</strong><br>${description}`;
       tooltip.style.display = "block";
       tooltip.style.left = (event.pageX + 15) + "px";
       tooltip.style.top = (event.pageY - 30) + "px";
@@ -192,9 +180,6 @@
     function hideTooltip() {
       const tooltip = document.getElementById("tooltip");
       tooltip.style.display = "none";
-    }
-
-      document.getElementById("tooltip").style.display = "none";
     }
   </script>
 
