@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Process Control System with Built-In Simulator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2em;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .light-mode {
+      background-color: #f8f9fa;
+      color: #222;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #ddd;
+    }
+    h1, h2 {
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1em 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .toggle-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #fff;
+      border-radius: 5px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      font-size: 0.9em;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .dark-mode .toggle-container {
+      background-color: #333;
+      color: #eee;
+      border-color: #555;
+    }
+    .back-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-weight: bold;
+      text-decoration: none;
+      color: #000;
+      z-index: 999;
+    }
+    .dark-mode .back-button {
+      background: #333;
+      color: #eee;
+      border-color: #555;
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <a href="index.html" class="back-button">⬅ Back to Home</a>
+  <div class="toggle-container" onclick="toggleMode()">🌙 Toggle Dark Mode</div>
+
+  <h1>Process Control System with Built-In Simulator</h1>
+  <p>During my senior year at the University of Arizona, I developed a MATLAB-based control system to regulate the water level in a cylindrical tank. The system read pressure data from a transducer and adjusted an outlet valve using a motorized actuator. I built the entire system from the ground up, including a user interface with real-time adjustable settings, diagnostic feedback, and a built-in simulator with tunable parameters. To ensure stability, I also implemented a “safe mode” that prevented the controller from inducing unstable oscillations. For the development of this system, I was honored to receive the Dr. William Scott Bousman Memorial Award from the Chemical Engineering Department on May 13, 2017.</p>
+  <img src="Lab PID program printout.png" alt="PID Program Screenshot" />
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const isDark = body.classList.contains("dark-mode");
+      body.classList.toggle("dark-mode", !isDark);
+      body.classList.toggle("light-mode", isDark);
+      localStorage.setItem("theme", isDark ? "light" : "dark");
+    }
+
+    window.onload = () => {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") {
+        document.body.classList.remove("light-mode");
+        document.body.classList.add("dark-mode");
+      }
+    };
+  </script>
+</body>
+</html>
