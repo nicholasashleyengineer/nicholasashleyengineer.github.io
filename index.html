@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html data-theme="dark" lang="en">
 <head>
@@ -6,153 +5,181 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Nick Ashley - Engineering Portfolio</title>
 <style>
-    :root {
-      --bg-color: #121212;
-      --text-color: #f0f0f0;
-      --accent-color: #003366;
-    }
+  :root {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --accent-color: #003366;
+  }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+  .light-mode {
+    --bg-color: #f8f9fa;
+    --text-color: #111;
+  }
 
-    header {
-      background-color: var(--accent-color);
-      color: white;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+  .dark-mode {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+  }
 
-    header img {
-      height: 80px;
-      width: 80px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 0.5rem;
-    }
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
 
-    h1, h2 {
-      margin: 0.5rem 0;
-    }
+  header {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    .summary, .portfolio-explanation, .projects {
-      padding: 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
+  header img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
 
-    .skills-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 2rem;
-    }
+  h1, h2 {
+    margin: 0.5rem 0;
+  }
 
-    .skill {
-      margin: 1rem;
-      position: relative;
-    }
+  .summary, .portfolio-explanation, .projects {
+    padding: 1rem;
+    max-width: 800px;
+    margin: auto;
+  }
 
-    .skill img {
-      height: 100px;
-      width: auto;
-      cursor: pointer;
-    }
+  .skills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
 
-    .tooltip {
-      text-align: center;
-      display: none;
-      position: absolute;
-      background-color: #333;
-      color: white;
-      padding: 0.75rem;
-      border-radius: 5px;
-      font-size: 0.85rem;
-      max-width: 360px;
-      z-index: 1000;
-      pointer-events: none;
-    }
+  .skill {
+    margin: 1rem;
+    position: relative;
+  }
 
-    .tooltip-title {
-      font-size: 1.25em;
-      color: #ffffff;
-      font-weight: bold;
-    }
+  .skill img {
+    height: 100px;
+    width: auto;
+    cursor: pointer;
+  }
 
-    .tooltip-description {
-      font-size: 1em;
-      color: white;
-    }
+  .tooltip {
+    text-align: center;
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    max-width: 360px;
+    z-index: 1000;
+    pointer-events: none;
+  }
 
-    .project-link {
-      display: block;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #66ccff;
-      text-decoration: none;
-    }
+  .tooltip-title {
+    font-size: 1.25em;
+    color: #ffffff;
+    font-weight: bold;
+  }
 
-    .project-link:hover {
-      text-decoration: underline;
-    }
+  .tooltip-description {
+    font-size: 1em;
+    color: white;
+  }
 
-    .toggle-container {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-    }
+  .project-link {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #66ccff;
+    text-decoration: none;
+  }
 
-    .toggle-btn {
-      background-color: #ffffff33;
-      border: none;
-      padding: 0.5rem 1rem;
-      color: white;
-      font-size: 0.9rem;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+  .project-link:hover {
+    text-decoration: underline;
+  }
+
+  .toggle-container {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .toggle-btn {
+    background-color: #ffffff33;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
 </style>
 </head>
-<body class="dark-mode">
+<body>
 <div class="toggle-container">
-<button class="toggle-btn" onclick="toggleMode()">Toggle Light/Dark</button>
+  <button class="toggle-btn" onclick="toggleMode()">Toggle Light/Dark</button>
 </div>
 <header>
-<img alt="Nick Ashley" src="673958563763.png"/>
-<h1>Nick Ashley</h1>
-<h2>Engineering Portfolio</h2>
+  <img alt="Nick Ashley" src="673958563763.png"/>
+  <h1>Nick Ashley</h1>
+  <h2>Engineering Portfolio</h2>
 </header>
 <div class="summary">
-<h2>About Me</h2>
-<p>Hi, I’m Nick Ashley! I’m an aerospace engineer with five years of industry experience, including roles at Blue Origin and Northrop Grumman. My background spans test engineering, systems integration, requirements development, and cross-functional project coordination. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, I enjoy drumming and music production, audiobooks, strategy games, and quality time with friends.</p>
+  <h2>About Me</h2>
+  <p>Hi, I’m Nick Ashley! I’m an aerospace engineer with five years of industry experience, including roles at Blue Origin and Northrop Grumman. My background spans test engineering, systems integration, requirements development, and cross-functional project coordination. I hold B.S. and M.S. degrees in Chemical Engineering from the University of Arizona. Outside of work, I enjoy drumming and music production, audiobooks, strategy games, and quality time with friends.</p>
 </div>
 <div class="portfolio-explanation">
-<h2>About This Portfolio</h2>
-<p>This portfolio showcases the core engineering skills I bring to the table, including both technical and cross-disciplinary strengths. Some projects featured here were developed independently, as I’m limited in the level of detail I can share about proprietary work from my career.</p>
+  <h2>About This Portfolio</h2>
+  <p>This portfolio showcases the core engineering skills I bring to the table, including both technical and cross-disciplinary strengths. Some projects featured here were developed independently, as I’m limited in the level of detail I can share about proprietary work from my career.</p>
 </div>
 <div class="skills-container">
-<div class="skill" onmousemove="showTooltip(event, 'Satellite Assembly, Integration &amp; Test (AI&amp;T)', 'I have experience planning critical mechanical operations, drafting high-level requirements for AI&amp;T tasks, and executing structural tests on spaceflight hardware.')" onmouseout="hideTooltip()">
-<img alt="Satellite AI&amp;T" src="S01.png"/>
-</div>
-<div class="skill" onmousemove="showTooltip(event, 'Technical Documentation', 'I have authored various forms of technical documentation, including Test Information Sheets (TISs) defining major satellite integration tasks at a high level, tutorials for searching a software database, and a Statement of Work (SOW) for performing spaceflight hardware testing at a subcontractor's facility.')" onmouseout="hideTooltip()">
-<img alt="Technical Documentation" src="S02.png"/>
-</div>
+  <div class="skill" onmousemove="showTooltip(event, 'Satellite Assembly, Integration &amp; Test (AI&amp;T)', 'I have experience planning critical mechanical operations, drafting high-level requirements for AI&amp;T tasks, and executing structural tests on spaceflight hardware.')" onmouseout="hideTooltip()">
+    <img alt="Satellite AI&amp;T" src="S01.png"/>
+  </div>
+  <div class="skill" onmousemove="showTooltip(event, 'Technical Documentation', 'I have authored various forms of technical documentation, including Test Information Sheets (TISs) defining major satellite integration tasks at a high level, tutorials for searching a software database, and a Statement of Work (SOW) for performing spaceflight hardware testing at a subcontractor\'s facility.')" onmouseout="hideTooltip()">
+    <img alt="Technical Documentation" src="S02.png"/>
+  </div>
 </div>
 <div class="projects">
-<h2>Projects</h2>
-<a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
-<a class="project-link" href="project2.html">Senior Design Project: Zero-Emissions Solar Thermal Plant</a>
-<a class="project-link" href="project3.html">Master Password Manager Application: MPES</a>
-<a class="project-link" href="project4.html">Process Control System with Built-In Simulator</a>
+  <h2>Projects</h2>
+  <a class="project-link" href="project1.html">SBAR WINDS Smart Irrigation Control System</a>
+  <a class="project-link" href="project2.html">Senior Design Project: Zero-Emissions Solar Thermal Plant</a>
+  <a class="project-link" href="project3.html">Master Password Manager Application: MPES</a>
+  <a class="project-link" href="project4.html">Process Control System with Built-In Simulator</a>
 </div>
 <div class="tooltip" id="tooltip"><div id="tooltip-title" class="tooltip-title"></div><div id="tooltip-description" class="tooltip-description"></div></div>
 <script>
+  function toggleMode() {
+    const body = document.body;
+    const isDark = body.classList.contains("dark-mode");
+    body.classList.toggle("dark-mode", !isDark);
+    body.classList.toggle("light-mode", isDark);
+    localStorage.setItem("theme", isDark ? "light" : "dark");
+  }
+
+  window.onload = () => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.body.classList.remove("dark-mode");
+      document.body.classList.add("light-mode");
+    } else {
+      document.body.classList.add("dark-mode");
+    }
+  };
+
   function showTooltip(event, title, description) {
     var tooltip = document.getElementById("tooltip");
     var tooltipTitle = document.getElementById("tooltip-title");
@@ -177,33 +204,6 @@
       tooltip.style.top = event.pageY + 15 + "px";
     }
   });
-
-  function toggleMode() {
-    document.body.classList.toggle("dark-mode");
-    document.body.classList.toggle("light-mode");
-  }
-</script>
-
-<script>
-  function toggleMode() {
-    const body = document.body;
-    const isDark = body.classList.contains("dark-mode");
-    body.classList.toggle("dark-mode", !isDark);
-    body.classList.toggle("light-mode", isDark);
-    localStorage.setItem("theme", isDark ? "light" : "dark");
-  }
-
-  window.onload = () => {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      document.body.classList.add("dark-mode");
-      document.body.classList.remove("light-mode");
-    } else if (saved === "light") {
-      document.body.classList.add("light-mode");
-      document.body.classList.remove("dark-mode");
-    }
-  };
 </script>
 </body>
 </html>
-
